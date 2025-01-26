@@ -5,6 +5,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - python = 3.12.8
   - aiohappyeyeballs=2.4.4
   - aiohttp=3.11.10
   - aiosignal=1.2.0
