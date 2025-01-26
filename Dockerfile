@@ -16,17 +16,16 @@ RUN apt-get update && apt-get install -y \
 
 # Install Miniconda
 ENV CONDA_DIR /opt/conda
-RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
-    bash ~/miniconda.sh -b -p $CONDA_DIR && \
-    rm ~/miniconda.sh && \
-    $CONDA_DIR/bin/conda clean -tipsy
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh && \
+    bash /tmp/miniconda.sh -b -p $CONDA_DIR && \
+    rm /tmp/miniconda.sh
 
 # Update PATH environment variable
 ENV PATH=$CONDA_DIR/bin:$PATH
 
-# Create and activate a Conda environment
+# Create a Conda environment
 COPY environment.yml .
-RUN conda env create -f environment.yml && conda clean -a
+RUN conda env create -f environment.yml
 
 # Make RUN commands use the new environment:
 SHELL ["conda", "run", "-n", "rag-env", "/bin/bash", "-c"]

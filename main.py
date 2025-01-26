@@ -21,11 +21,18 @@ def query_database(prompt):
 
 def main():
     parser = argparse.ArgumentParser(description="RAG Application")
-    parser.add_argument('--prompt', type=str, required=True, help='What are the steps to make meatloaf according to diet cheat codes, answer like Chef Gordon Ramsey.')
+    parser.add_argument(
+        '--prompt',
+        type=str,
+        help='Prompt for the RAG query. Example: "What are the steps to make meatloaf according to diet cheat codes, answer like Chef Gordon Ramsay."'
+    )
     args = parser.parse_args()
 
+    # Use a default prompt if none is provided
+    prompt = args.prompt or "What are the steps to make nickchicken according to diet cheat codes, answer like Chef Gordon Ramsay."
+
     populate_database()
-    query_database(args.prompt)
+    query_database(prompt)
 
 if __name__ == "__main__":
     main()
