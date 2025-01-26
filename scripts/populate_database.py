@@ -9,22 +9,29 @@ from langchain.schema import Document
 import chromadb
 from chromadb.config import Settings  # Import Settings for explicit configuration
 from ollama import Client
-import config  # Import shared configuration
+# import scripts.config as config  # Import shared configuration
+import config
+from pathlib import Path
+import logging
 
-# Logging Configuration
-LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-LOG_LEVEL = logging.DEBUG  # Set to DEBUG for detailed logs during troubleshooting
+# Define the path to the logs directory relative to this script
+log_dir = Path(__file__).parent.parent / "logs"
+log_dir.mkdir(parents=True, exist_ok=True)
 
-logging.basicConfig(
-    level=LOG_LEVEL,
-    format=LOG_FORMAT,
-    handlers=[
-        logging.FileHandler("populate_database.log"),  # Log to a file
-        logging.StreamHandler()  # Also log to console
-    ]
-)
+# Define the log file path
+log_file = log_dir / "application.log"
 
-logger = logging.getLogger(__name__)  # Create a logger for this module
+# Create a logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Create a file handler
+file_handler = logging.FileHandler(log_file)
+file_handler.setLevel(logging.INFO)
+
+# Create a formatter and set it for the handler
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
 
 # Initialize the Ollama client
 try:

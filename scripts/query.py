@@ -2,23 +2,31 @@ import logging
 import chromadb
 from chromadb.config import Settings
 from ollama import Client
+# import scripts.config as config
 import config
 import sys
 
-# Logging Configuration
-LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-LOG_LEVEL = logging.DEBUG
+from pathlib import Path
+import logging
 
-logging.basicConfig(
-    level=LOG_LEVEL,
-    format=LOG_FORMAT,
-    handlers=[
-        logging.FileHandler("rag_application.log"),
-        logging.StreamHandler()
-    ]
-)
+# Define the path to the logs directory relative to this script
+log_dir = Path(__file__).parent.parent / "logs"
+log_dir.mkdir(parents=True, exist_ok=True)
 
+# Define the log file path
+log_file = log_dir / "application.log"
+
+# Create a logger
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Create a file handler
+file_handler = logging.FileHandler(log_file)
+file_handler.setLevel(logging.INFO)
+
+# Create a formatter and set it for the handler
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
 
 # Initialize the Ollama client
 try:
