@@ -1,2 +1,9 @@
+# ignore data folders and chroma db to push to database
 ./data
 ./chroma
+
+# i don't understand gitignore, so i am putting the folders twice
+data
+chroma
+notes.txt
+__pycache__

@@ -1,0 +1,46 @@
+2025-01-26 09:03:47,708 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-01-26 09:03:47,710 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\diego\\miniconda3\\envs\\rag_test\\Library\\ssl\\cacert.pem'
+2025-01-26 09:03:48,093 - __main__ - INFO - Initialized Ollama client successfully.
+2025-01-26 09:03:48,847 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-01-26 09:03:49,179 - chromadb.config - DEBUG - Starting component System
+2025-01-26 09:03:49,186 - chromadb.config - DEBUG - Starting component Posthog
+2025-01-26 09:03:49,186 - chromadb.config - DEBUG - Starting component OpenTelemetryClient
+2025-01-26 09:03:49,187 - chromadb.config - DEBUG - Starting component SqliteDB
+2025-01-26 09:03:49,205 - chromadb.config - DEBUG - Starting component SimpleQuotaEnforcer
+2025-01-26 09:03:49,207 - chromadb.config - DEBUG - Starting component SimpleRateLimitEnforcer
+2025-01-26 09:03:49,207 - chromadb.config - DEBUG - Starting component LocalSegmentManager
+2025-01-26 09:03:49,209 - chromadb.config - DEBUG - Starting component LocalExecutor
+2025-01-26 09:03:49,212 - chromadb.config - DEBUG - Starting component SegmentAPI
+2025-01-26 09:03:49,218 - __main__ - INFO - Initialized Chroma client successfully.
+2025-01-26 09:03:49,222 - __main__ - INFO - Received user query: who is the author of diet cheat meals?
+2025-01-26 09:03:49,225 - httpcore.connection - DEBUG - connect_tcp.started host='3.23.102.245' port=11434 local_address=None timeout=None socket_options=None
+2025-01-26 09:03:49,289 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000029EF8DA29C0>
+2025-01-26 09:03:49,291 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-01-26 09:03:49,291 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-01-26 09:03:49,292 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-01-26 09:03:49,292 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-01-26 09:03:49,293 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-01-26 09:03:49,725 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): us.i.posthog.com:443
+2025-01-26 09:03:50,140 - urllib3.connectionpool - DEBUG - https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-01-26 09:03:50,386 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Sun, 26 Jan 2025 16:03:50 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-01-26 09:03:50,388 - httpx - INFO - HTTP Request: POST http://3.23.102.245:11434/api/embed "HTTP/1.1 200 OK"
+2025-01-26 09:03:50,388 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-01-26 09:03:50,455 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-01-26 09:03:50,457 - httpcore.http11 - DEBUG - response_closed.started
+2025-01-26 09:03:50,457 - httpcore.http11 - DEBUG - response_closed.complete
+2025-01-26 09:03:50,458 - __main__ - DEBUG - Successfully generated embedding for the query.
+2025-01-26 09:03:50,465 - chromadb.config - DEBUG - Starting component PersistentLocalHnswSegment
+2025-01-26 09:03:50,594 - __main__ - INFO - Retrieved 5 relevant chunks.
+2025-01-26 09:03:50,596 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-01-26 09:03:50,597 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-01-26 09:03:50,597 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-01-26 09:03:50,598 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-01-26 09:03:50,598 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-01-26 09:03:50,789 - urllib3.connectionpool - DEBUG - https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-01-26 09:04:07,866 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Sun, 26 Jan 2025 16:04:08 GMT'), (b'Content-Length', b'1701')])
+2025-01-26 09:04:07,868 - httpx - INFO - HTTP Request: POST http://3.23.102.245:11434/api/generate "HTTP/1.1 200 OK"
+2025-01-26 09:04:07,868 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-01-26 09:04:07,869 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-01-26 09:04:07,869 - httpcore.http11 - DEBUG - response_closed.started
+2025-01-26 09:04:07,869 - httpcore.http11 - DEBUG - response_closed.complete
+2025-01-26 09:04:07,870 - __main__ - INFO - Successfully generated response from Ollama LLM.
